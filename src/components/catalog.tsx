@@ -4,7 +4,7 @@ import Link from "next/link";
 import ReadableTitle from "./readable-title";
 import { SiteIcon } from "./site-icon";
 import { faqItems, type SitePage } from "@/content/site";
-import { BotArtwork, MiniBot } from "./bot-family";
+import { BotArtwork, MiniBot, pageArtwork } from "./bot-family";
 import { characterFor } from "@/content/characters";
 import type { CSSProperties } from "react";
 function searchText(value: string) {
@@ -77,8 +77,7 @@ export function Catalog({
             {kind === "news" ? (
               <div className="catalog-image">
                 <BotArtwork
-                  original={`/images/${p.image}-transparent.webp`}
-                  scene={p.image === "security-guide" ? "security" : p.image === "support-team" ? "support" : "work"}
+                  src={pageArtwork(p.slug, "thumbnail")}
                   color={characterFor(p.slug).color}
                   alt=""
                 />

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BotArtwork, MiniBot } from "./bot-family";
+import { BotArtwork, MiniBot, pageArtwork } from "./bot-family";
 import { SiteIcon } from "./site-icon";
 import { characterFor } from "@/content/characters";
 import {
@@ -17,7 +17,7 @@ export function ConsultationCTA() {
     </a>
   );
 }
-export function ContactBanner() {
+export function ContactBanner({ slug }: { slug: string }) {
   return (
     <section className="site-contact">
       <div className="container site-contact-inner">
@@ -27,10 +27,9 @@ export function ContactBanner() {
           <ConsultationCTA />
         </div>
         <BotArtwork
-          original="/images/support-team-transparent.webp"
-          scene="support"
+          src={pageArtwork(slug, "contact")}
           color="pink"
-          alt="マスコットと一緒に仕事の進め方を相談するイメージ"
+          alt=""
         />
       </div>
     </section>
@@ -79,7 +78,7 @@ export function HomeExplore() {
       <section className="home-story section">
         <div className="container story-grid">
           <BotArtwork
-            original="/images/work-guide-transparent.webp"
+            src="/images/work-guide-transparent.webp"
             alt="資料を整理し、仕事の準備をするマスコット"
           />
           <div>

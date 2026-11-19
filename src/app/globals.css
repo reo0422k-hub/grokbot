@@ -231,7 +231,7 @@ section[id] {
   letter-spacing: 0.06em;
   margin-bottom: 22px;
 }
-.hero-kicker > span {
+.hero-kicker > .hero-kicker-mark {
   width: 6px;
   height: 6px;
   background: var(--red);

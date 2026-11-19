@@ -4,8 +4,8 @@ export default function NotFound() {
   return (
     <main id="main" tabIndex={-1} className="not-found-page container">
       <Image
-        src="/images/work-guide-transparent.webp"
-        alt="資料を探しているマスコット"
+        src="/images/page-artwork/not-found.webp"
+        alt="道を探しているマスコット"
         width={440}
         height={330}
       />

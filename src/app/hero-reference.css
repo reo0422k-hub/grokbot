@@ -90,7 +90,12 @@ body {
   font-weight: 750;
   line-height: 1.5;
 }
-.hero-kicker > span {
+.hero-kicker-accent {
+  color: #cf1931;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.hero-kicker > .hero-kicker-mark {
   width: 11px;
   height: 11px;
 }
@@ -302,7 +307,7 @@ section[id] {
     gap: 12px;
     margin-bottom: 12px;
   }
-  .hero-kicker > span {
+  .hero-kicker > .hero-kicker-mark {
     height: 8px;
     width: 8px;
   }
@@ -394,7 +399,7 @@ section[id] {
     gap: 9px;
     letter-spacing: 0.02em;
   }
-  .hero-kicker > span {
+  .hero-kicker > .hero-kicker-mark {
     width: 7px;
     height: 7px;
   }

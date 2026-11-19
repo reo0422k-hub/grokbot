@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HomeExplore, HomeMore } from "@/components/site-common";
 import { MiniBot } from "@/components/bot-family";
+import { OrbitUseCases } from "@/components/orbit-use-cases";
 import { SiteIcon } from "@/components/site-icon";
 import { consultation, faqItems } from "@/content/site";
 const cases = [
@@ -34,28 +35,6 @@ const cases = [
     request: "競合サービスの公開情報を調べて、出典付きで比較して。",
     outputs: ["出典付きの競合比較表", "比較項目ごとの違いと確認事項"],
     human: "比較条件と出典の確認、次に取り組む施策の判断。",
-  },
-] as const;
-const supports = [
-  {
-    icon: "settings",
-    title: "対象業務と完成条件の整理",
-    text: "任せる仕事と完成条件、人が判断する範囲を決めます。",
-  },
-  {
-    icon: "workflow",
-    title: "Bot構築と業務ツールの接続",
-    text: "普段使う資料・手順・ツールに合わせてBotを構築します。",
-  },
-  {
-    icon: "approval",
-    title: "権限、承認、品質の設計と検証",
-    text: "Botの権限と人の承認を設計し、成果物の品質を確かめます。",
-  },
-  {
-    icon: "training",
-    title: "社員研修と運用改善",
-    text: "依頼・確認・停止の手順を研修し、使いながら運用を改善します。",
   },
 ] as const;
 function CTA({ small = false }: { small?: boolean }) {
@@ -109,8 +88,8 @@ export default function Home() {
             <div className="hero-grid">
               <div className="hero-copy">
                 <p className="hero-kicker">
-                  <span />
-                  法人向け Grok Bot 導入支援
+                  <span className="hero-kicker-mark" aria-hidden="true" />
+                  <span>法人向け Grok Bot <strong className="hero-kicker-accent">導入支援</strong></span>
                 </p>
                 <h1>
                   <span>Grok Botを、</span>
@@ -249,39 +228,7 @@ export default function Home() {
             </Link>
           </div>
         </section>
-        <section className="section support" id="support">
-          <div className="container support-layout">
-            <div className="support-heading">
-              <h2>
-                業務の選定から、
-                <br />
-                現場で使い続ける
-                <br />
-                仕組みまで。
-              </h2>
-              <p>
-                業務に合うBotを設計し、定着を支援します。
-              </p>
-              <Link className="text-link home-detail-link" href="/support/">
-                導入支援を詳しく見る
-                <SiteIcon name="arrow-right" size={18} />
-              </Link>
-            </div>
-            <div className="support-list">
-              {supports.map(({ icon, title, text }) => (
-                <article key={title}>
-                  <div className="support-icon">
-                    <SiteIcon name={icon} size={30} detail />
-                  </div>
-                  <div>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <OrbitUseCases />
         <section className="section poc" id="poc">
           <div className="container">
             <div className="section-head">
@@ -298,35 +245,47 @@ export default function Home() {
               45日PoCの詳細を見る
               <SiteIcon name="arrow-right" size={18} />
             </Link>
-            <ol className="timeline">
+            <ol className="poc-journey" role="list">
               {[
                 [
                   "1–10",
+                  "review",
                   "対象業務と\n現状の整理",
                   "手順・作業量・完成条件を整理し、検証する指標を決めます。",
                 ],
                 [
                   "11–20",
+                  "configure",
                   "Botと利用環境の\n設計",
                   "参照情報、ツール接続、権限と承認の流れを整えます。",
                 ],
                 [
                   "21–35",
+                  "test",
                   "実際の業務で\n検証",
                   "現場で使いながら品質を確認。必要な修正を重ねます。",
                 ],
                 [
                   "36–45",
+                  "decide",
                   "結果を整理し、\n本格導入を判断",
                   "検証結果を振り返り、続ける範囲や改善点を整理します。",
                 ],
-              ].map(([days, title, text]) => (
-                <li key={days}>
-                  <p className="days">
+              ].map(([days, artwork, title, text]) => (
+                <li className="poc-stop" key={days}>
+                  <div className="poc-stop-art" aria-hidden="true">
+                    <Image
+                      src={`/images/poc/${artwork}.webp`}
+                      alt=""
+                      width={210}
+                      height={210}
+                      unoptimized
+                    />
+                  </div>
+                  <p className="poc-days">
                     {days}
                     <span>日</span>
                   </p>
-                  <div className="timeline-dot" />
                   <h3>
                     {title.split("\n").map((s, j) => (
                       <span key={j}>
@@ -339,7 +298,8 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-            <div className="measurement">
+            <div className="measurement poc-measurement">
+              <SiteIcon name="layers" size={25} detail />
               <p>
                 作業時間・修正率・完了率を比較します。
                 <br />

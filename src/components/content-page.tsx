@@ -2,7 +2,7 @@ import Link from "next/link";
 import { pages, pageLabel, type SitePage, type Section } from "@/content/site";
 import { Catalog, FAQDirectory } from "./catalog";
 import { ContactBanner, ConsultationCTA, RelatedPages } from "./site-common";
-import { BotArtwork, MiniBot } from "./bot-family";
+import { BotArtwork, MiniBot, pageArtwork } from "./bot-family";
 import { SiteIcon } from "./site-icon";
 import { characterFor } from "@/content/characters";
 import type { CSSProperties } from "react";
@@ -91,16 +91,9 @@ export default function ContentPage({ page }: { page: SitePage }) {
         {!textOnly && (
           <div className="subhero-art">
             <BotArtwork
-              original={`/images/${page.image}-transparent.webp`}
-              scene={page.image === "security-guide" ? "security" : page.image === "support-team" ? "support" : "work"}
+              src={pageArtwork(page.slug, "hero")}
               color={theme.color}
-              alt={
-                page.image === "security-guide"
-                  ? "承認と情報管理を表す盾とマスコット"
-                  : page.image === "support-team"
-                    ? "業務の進め方を相談するマスコットとチーム"
-                    : "資料を整理して仕事の準備をするマスコット"
-              }
+              alt=""
               priority
             />
           </div>
@@ -254,7 +247,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
       )}
       {page.related.length > 0 && <RelatedPages slugs={page.related} />}
       {!["privacy", "editorial-policy"].includes(page.slug) && (
-        <ContactBanner />
+        <ContactBanner slug={page.slug} />
       )}
     </main>
   );

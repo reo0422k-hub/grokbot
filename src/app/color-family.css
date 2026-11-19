@@ -144,7 +144,8 @@
   .story-grid h2 { font-size:30px; }
   .story-grid > .bot-artwork { order:2; max-width:340px; }
   .story-grid > div:not(.bot-artwork) { order:1; }
-  .home-page .problems,.home-page .support,.home-page .pricing,.home-guides { background:#fafbfc; border-color:#eceff2; }
+  .home-page .problems,.home-page .support,.home-guides { background:#fafbfc; border-color:#eceff2; }
+  .home-page .pricing { border-color:#eceff2; }
   .home-page .problem-grid article { border-color:#e4e8ec; }
   .case-guide-bot { width:72px; margin-top:-9px; }
   .home-page .case-panel { background:#fafcfc; border-color:#e2ece9; }

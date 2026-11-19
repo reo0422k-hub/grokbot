@@ -1,0 +1,6 @@
+:HL["/grokbot/_next/static/css/cc29b82de2c414d3.css","style"]
+:HL["/grokbot/_next/static/css/2deeb36b5c66c7b6.css","style"]
+:HL["/grokbot/_next/static/css/acef75f2d3c6ca9f.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"lcl43WjjjJ6n23M4sEazn","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
